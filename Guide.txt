@@ -1,0 +1,102 @@
+Chương 1:
+
+-Nền tảng để chạy chương trình: mỗi ngôn ngữ đều có 1 nền tảng riêng
+nền tảng = môi trường + công cụ để chương trình chạy đc
++)Công cụ (compiler): biến code của bạn thành thứ có thể chạy -> biến code thành mã trung gian
++)Môi trường (runtime): có thể hiểu và chạy đc code -> biến code thành mã nhị phân (0,1) để cpu có thể hiểu và chạy
+.NET là nền tảng để chạy C#
+.NET bao gồm: .NET Runtime -> môi trường 
+              compiler (csc) -> công cụ
+Compiler có thể khác nhau ở mỗi ngôn ngữ
+vd: c# có compiler là csc nằm trong .NET SDK
+    java có compiler là javac nằm trong JDK
+=> Các bước để chạy chương trình (có mã trung gian) là:
+Viết code -> compiler -> runtime -> cpu chạy
+
+**Lưu ý: 
+-Chỉ ngôn ngữ có mã trung gian (java, c#, python,...) thì compiler mới biến code thành mã trung gian
+-Các ngôn ngữ ko có mã trung gian (C, C++,...) thì compiler biến trực tiếp code thành mã nhị phân (0,1), runtime chỉ hỗ trợ thư viện
+
+=> Các bước để chạy chương trình (ko có mã trung gian) là:
+Viết code -> compiler -> cpu chạy
+
+
+-IDE: là môi trường phát triển tích hợp
+hay nói cách khác IDE là phần mềm soạn thảo code có các chức năng nâng cao như Compiler (biên dịch), Debugger (chạy và sửa lỗi), quản lý thư viện,... 
+Có nhiều IDE khác nhau như: visual code, IntelliJ JDEA,... và mỗi IDE sẽ được tích hợp một số nền tảng nhất định => mỗi IDE sẽ mạnh về các ngôn ngữ khác nhau như visual code đc tích hợp rất sâu nền tảng .NET => visual code chạy rất mạnh về ngôn ngữ ngữ C#
+
+
+
+CHƯƠNG 2
+
+I/ Các lệnh cơ bản c#
+
+1. Xuất dữ liệu
+Console.Write();   Xuất dữ liệu, (giá trị) có thể là chuỗi ký tự, số
+
+Console.WriteLine();   Giống lệnh trên nhưng sau khi in giá trị ra màn hình thì hệ thống sẽ đặt con trỏ xuống dòng tiếp theo -> tức là viết ra rồi xuống dòng
+
+2. Nhập dữ liệu
+
+String S = Console.ReadLine();
+int n = int.Parse(Console.ReadLine());
+double d = double.Parse(Console.ReadLine());
+
+
+
+***** Các câu lệnh và các phương thức khác khác
+
+*
+Console.ReadLine();   Đặt cuối chương trình để dừng màn hình, nếu ko có thì chương trình chạy xong sẽ tắt rất nhanh
+
+*
+Console.OutputEncoding = Encoding.UTF8;
+Console.InputEncoding = Encoding.UTF8;
+
+*
+.Trim() : phương thức giúp loại bỏ các ký tự trắng ở đầu và cuối chuỗi
+vd: input = input.Trim();
+
+*
+.split(): dùng để tách chuỗi thành nhiều phần tử nhỏ dựa vào ký tự hoặc chuỗi phân cách
+vd: string s = "apple,banana,orange";
+string[] arr = s.Split(',');
+Kết quả: arr sẽ chứa: "apple", "banana", "orange"
+
+s.Split(','); → tách chuỗi khi gặp dấu phẩy ,
+s.Split(' '); → tách chuỗi khi gặp dấu cách (space)
+
+StringSplitOptions.RemoveEmptyEntries => dùng để loại bỏ phần tử rỗng khi đã tách chuỗi
+vd: -Ban đầu input = "  nGuYeN    vaN   tAi  "
+input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+-Nếu chỉ Split(' ') thì sẽ ra:
+input = ["", "", "nGuYeN", "", "", "", "vaN", "", "", "tAi", "", ""]
+-Nhưng có RemoveEmptyEntries thì sẽ thành:
+["nGuYeN", "vaN", "tAi"]
+
+Lưu ý: Khi dùng split thì đa số kiểu dữ liệu sẽ là kiểu mảng chuỗi String[]
+vd: string[] words = input.Split(' ');
+
+
+*
+.Substring(): phương thức Cắt/lấy ra một phần của chuỗi từ một vị trí xác định.
+string s = "Nguyen";
+s.Substring(0, 1) → "N" (lấy từ vị trí 0, dài 1 ký tự)
+s.Substring(1) → "guyen" (lấy từ vị trí 1 đến hết)
+
+*
+.Join("ký_tự_phân_cách", mảng_chuỗi);
+Dùng để nối nhiều chuỗi lại thành một chuỗi, có chèn ký tự phân cách vào giữa.
+string[] arr = { "apple", "banana", "orange" };
+string result = string.Join(", ", arr);
+👉 Kết quả:
+"apple, banana, orange"
+
+
+
+
+
+
+
+
+
