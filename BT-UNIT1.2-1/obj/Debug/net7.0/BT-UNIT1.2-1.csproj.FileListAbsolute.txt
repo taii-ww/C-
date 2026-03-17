@@ -1,0 +1,14 @@
+D:\C#\BT-UNIT1.2-1\bin\Debug\net7.0\BT-UNIT1.2-1.exe
+D:\C#\BT-UNIT1.2-1\bin\Debug\net7.0\BT-UNIT1.2-1.deps.json
+D:\C#\BT-UNIT1.2-1\bin\Debug\net7.0\BT-UNIT1.2-1.runtimeconfig.json
+D:\C#\BT-UNIT1.2-1\bin\Debug\net7.0\BT-UNIT1.2-1.dll
+D:\C#\BT-UNIT1.2-1\bin\Debug\net7.0\BT-UNIT1.2-1.pdb
+D:\C#\BT-UNIT1.2-1\obj\Debug\net7.0\BT-UNIT1.2-1.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\BT-UNIT1.2-1\obj\Debug\net7.0\BT-UNIT1.2-1.AssemblyInfoInputs.cache
+D:\C#\BT-UNIT1.2-1\obj\Debug\net7.0\BT-UNIT1.2-1.AssemblyInfo.cs
+D:\C#\BT-UNIT1.2-1\obj\Debug\net7.0\BT-UNIT1.2-1.csproj.CoreCompileInputs.cache
+D:\C#\BT-UNIT1.2-1\obj\Debug\net7.0\BT-UNIT1.2-1.dll
+D:\C#\BT-UNIT1.2-1\obj\Debug\net7.0\refint\BT-UNIT1.2-1.dll
+D:\C#\BT-UNIT1.2-1\obj\Debug\net7.0\BT-UNIT1.2-1.pdb
+D:\C#\BT-UNIT1.2-1\obj\Debug\net7.0\BT-UNIT1.2-1.genruntimeconfig.cache
+D:\C#\BT-UNIT1.2-1\obj\Debug\net7.0\ref\BT-UNIT1.2-1.dll
