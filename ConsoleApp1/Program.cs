@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using ConsoleApp1;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,22 +9,26 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 14");
+Console.WriteLine("Bài 15");
 
+Dictionary<string, string> dict = new Dictionary<string, string>();
 
+dict.Add("hello", "xin chào");
+dict.Add("book", "quyển sách");
+dict.Add("dog", "con chó");
 
-Console.Write("Nhập ID cần xóa: ");
-int id = int.Parse(Console.ReadLine());
+Console.Write("Nhập từ tiếng Anh: ");
+string word = Console.ReadLine();
 
-Student s = Student.list.Find(x => x.Id == id);
-
-if (s != null)
+if (dict.ContainsKey(word))
 {
-    Student.list.Remove(s);
+    Console.WriteLine("Nghĩa: " + dict[word]);
+}
+else
+{
+    Console.WriteLine("Không tìm thấy");
 }
 
-Console.Write("Sau khi xóa: ");
-foreach (Student ss in Student.list)
-{
-    Console.WriteLine("Id: " + ss.Id + ", Name: " + ss.Name);
-}
+
+
+
