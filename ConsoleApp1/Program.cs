@@ -10,18 +10,9 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 12");
+Console.WriteLine("Bài 13");
 
 
 
-Console.Write("Nhập tên cần tìm: ");
-string name = Console.ReadLine();
-
-foreach (Student s in Student.list)
-{
-    if (s.Name == name)
-    {
-        Console.WriteLine("Id: " + s.Id + ", Name: " + s.Name);
-    }
-}
+Console.WriteLine("Tổng số sinh viên: " + Student.list.Count);
 
