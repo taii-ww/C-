@@ -8,7 +8,7 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 3");
+Console.WriteLine("Bài 4");
 
 List<int> list = new List<int>();
 
@@ -23,11 +23,11 @@ for(int i=1; i <= n; i++)
     list.Add(x);
 }
 
-int max = list[0];
+int dem = 0;
 foreach(int x in list)
 {
-    if (x > max)
-        max = x;
+    if (x % 2 == 0)
+        dem = dem + 1;
 }
 
-Console.WriteLine("Phần tử lớn nhất là: " + max);
+Console.WriteLine("Số chẵn trong danh sách là: " + dem);
