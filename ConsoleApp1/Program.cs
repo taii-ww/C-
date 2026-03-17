@@ -8,9 +8,9 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 6");
+Console.WriteLine("Bài 7");
 
-/*
+
 List<int> list = new List<int>();
 
 
@@ -24,20 +24,13 @@ for(int i=1; i <= n; i++)
     int x = int.Parse(Console.ReadLine());
     list.Add(x);
 }
-*/
 
+list.Sort();
 
-List<string> list = new List<string>() { "An", "Bình", "Thắng", "Tài" };
-Console.WriteLine("Danh sách chứa các chuỗi sau: ");
-foreach(string item in list)
+Console.Write("Sau khi sắp xếp: ");
+foreach (int x in list)
 {
-    Console.WriteLine(item);
+    Console.Write(x+", ");
 }
 
-Console.Write("Nhập chuỗi cần kiểm tra: ");
-string name = Console.ReadLine();
 
-if (list.Contains(name))
-    Console.WriteLine("Có trong danh sách");
-else
-    Console.WriteLine("Không có");
