@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using ConsoleApp1;
+using System.Collections.Generic;
 using System.Text;
 
 Console.OutputEncoding = Encoding.UTF8;
@@ -9,17 +10,18 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 11");
+Console.WriteLine("Bài 12");
 
 
-List<Student> list = new List<Student>();
 
-list.Add(new Student { Id = 1, Name = "An" });
-list.Add(new Student { Id = 2, Name = "Binh" });
+Console.Write("Nhập tên cần tìm: ");
+string name = Console.ReadLine();
 
-foreach (Student s in list)
+foreach (Student s in Student.list)
 {
-    Console.WriteLine("Id: " + s.Id + ", Name: " + s.Name);
+    if (s.Name == name)
+    {
+        Console.WriteLine("Id: " + s.Id + ", Name: " + s.Name);
+    }
 }
-
 

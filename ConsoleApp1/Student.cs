@@ -10,5 +10,12 @@ namespace ConsoleApp1
     {
         public int Id;
         public string Name;
+
+        public static List<Student> list = new List<Student>()
+    {
+        new Student { Id = 1, Name = "An" },
+        new Student { Id = 2, Name = "Binh" },
+        new Student { Id = 3, Name = "Cuong" }
+    };
     }
 }
