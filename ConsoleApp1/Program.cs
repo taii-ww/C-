@@ -8,9 +8,11 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 4");
+Console.WriteLine("Bài 5");
 
+/*
 List<int> list = new List<int>();
+
 
 Console.Write("Nhập số lượng phần tử: ");
 int n = int.Parse(Console.ReadLine());
@@ -22,12 +24,23 @@ for(int i=1; i <= n; i++)
     int x = int.Parse(Console.ReadLine());
     list.Add(x);
 }
+*/
 
-int dem = 0;
-foreach(int x in list)
+
+List<string> list = new List<string>() { "An", "Bình", "Thắng", "Tài" };
+Console.WriteLine("Danh sách chứa các tên sau: ");
+foreach(string item in list)
 {
-    if (x % 2 == 0)
-        dem = dem + 1;
+    Console.WriteLine(item);
 }
 
-Console.WriteLine("Số chẵn trong danh sách là: " + dem);
+Console.Write("Nhập tên cần xóa: ");
+String name = Console.ReadLine();
+
+list.Remove(name);
+
+Console.WriteLine("Danh sách sau khi xóa: ");
+foreach (string item in list)
+{
+    Console.WriteLine(item);
+}
