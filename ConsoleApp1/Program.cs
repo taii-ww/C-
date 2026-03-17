@@ -8,7 +8,7 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 9");
+Console.WriteLine("Bài 10");
 
 
 List<int> list = new List<int>();
@@ -25,12 +25,13 @@ for(int i=1; i <= n; i++)
     list.Add(x);
 }
 
-List<int> newList = list.Distinct().ToList();
+int min = list[0];
 
-Console.Write("Danh sách ko chứa phần tử trùng: ");
-foreach (int x in newList)
+foreach (int x in list)
 {
-    Console.Write(x+", ");
+    if (x < min)
+        min = x;
 }
+Console.WriteLine("Min = " + min);
 
 
