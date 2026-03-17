@@ -8,7 +8,7 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 8");
+Console.WriteLine("Bài 9");
 
 
 List<int> list = new List<int>();
@@ -25,10 +25,10 @@ for(int i=1; i <= n; i++)
     list.Add(x);
 }
 
-list.Reverse();
+List<int> newList = list.Distinct().ToList();
 
-Console.Write("Sau khi đảo ngược: ");
-foreach (int x in list)
+Console.Write("Danh sách ko chứa phần tử trùng: ");
+foreach (int x in newList)
 {
     Console.Write(x+", ");
 }
