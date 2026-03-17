@@ -8,7 +8,7 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 7");
+Console.WriteLine("Bài 8");
 
 
 List<int> list = new List<int>();
@@ -25,9 +25,9 @@ for(int i=1; i <= n; i++)
     list.Add(x);
 }
 
-list.Sort();
+list.Reverse();
 
-Console.Write("Sau khi sắp xếp: ");
+Console.Write("Sau khi đảo ngược: ");
 foreach (int x in list)
 {
     Console.Write(x+", ");
