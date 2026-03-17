@@ -9,26 +9,25 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 15");
+Console.WriteLine("Bài 16");
 
-Dictionary<string, string> dict = new Dictionary<string, string>();
+Console.Write("Nhập chuỗi: ");
+string str = Console.ReadLine();
 
-dict.Add("hello", "xin chào");
-dict.Add("book", "quyển sách");
-dict.Add("dog", "con chó");
+Dictionary<char, int> dict = new Dictionary<char, int>();
 
-Console.Write("Nhập từ tiếng Anh: ");
-string word = Console.ReadLine();
-
-if (dict.ContainsKey(word))
+foreach (char c in str)
 {
-    Console.WriteLine("Nghĩa: " + dict[word]);
-}
-else
-{
-    Console.WriteLine("Không tìm thấy");
+    if (dict.ContainsKey(c))
+        dict[c]++;
+    else
+        dict[c] = 1;
 }
 
+foreach (var item in dict)
+{
+    Console.Write(item.Key + " : " + item.Value + " ");
+}
 
 
 
