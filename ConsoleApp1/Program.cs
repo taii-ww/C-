@@ -9,25 +9,45 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 16");
+Console.WriteLine("Bài 17");
 
-Console.Write("Nhập chuỗi: ");
-string str = Console.ReadLine();
+List<int> list = new List<int>();
 
-Dictionary<char, int> dict = new Dictionary<char, int>();
+Console.Write("Nhập số lượng: ");
+int n = int.Parse(Console.ReadLine());
 
-foreach (char c in str)
+for (int i = 0; i < n; i++)
 {
-    if (dict.ContainsKey(c))
-        dict[c]++;
-    else
-        dict[c] = 1;
+    Console.Write("Nhập số: ");
+    int x = int.Parse(Console.ReadLine());
+    list.Add(x);
 }
+
+// đếm
+Dictionary<int, int> dict = new Dictionary<int, int>();
+
+foreach (int x in list)
+{
+    if (dict.ContainsKey(x))
+        dict[x]++;
+    else
+        dict[x] = 1;
+}
+
+// tìm max
+int maxCount = 0;
+int result = list[0];
 
 foreach (var item in dict)
 {
-    Console.Write(item.Key + " : " + item.Value + " ");
+    if (item.Value > maxCount)
+    {
+        maxCount = item.Value;
+        result = item.Key;
+    }
 }
+
+Console.WriteLine("Số xuất hiện nhiều nhất: " + result);
 
 
 
