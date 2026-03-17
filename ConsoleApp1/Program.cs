@@ -8,17 +8,25 @@ Console.InputEncoding = Encoding.UTF8;
 Console.WriteLine("Trần Đức Tài ");
 Console.WriteLine("Msv: 2415053122241 \n");
 
+Console.WriteLine("Bài 2");
 
 List<int> list = new List<int>();
 
-list.Add(1);
-list.Add(3);
-list.Add(5);
-list.Add(77);
-list.Add(-4);
+Console.Write("Nhập số lượng phần tử: ");
+int n = int.Parse(Console.ReadLine());
 
-Console.WriteLine("Bài 1");
-foreach (int x in list)
+
+for(int i=1; i <= n; i++)
 {
-    Console.WriteLine(x);
+    Console.Write("Phần tử thứ " + i + ": ");
+    int x = int.Parse(Console.ReadLine());
+    list.Add(x);
 }
+
+int tong = 0;
+foreach(int x in list)
+{
+    tong = tong + x;
+}
+
+Console.WriteLine("Tổng các phần tử là: " + tong);
