@@ -10,7 +10,7 @@ Console.WriteLine("Trần Đức Tài");
 Console.WriteLine("Lớp: 24T2");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 9");
+Console.WriteLine("Bài 10");
 
 List<Student> students = new List<Student>()
 {
@@ -20,10 +20,10 @@ List<Student> students = new List<Student>()
     new Student{Id=4, Name="Dung", Score=7}
 };
 
-var a = students.Select(x => x.Name);
+var a = students.OrderByDescending(x => x.Score);
 
 foreach(var n in a)
 {  
-    Console.WriteLine(n);
+    Console.WriteLine(n.Score);
 }
 
