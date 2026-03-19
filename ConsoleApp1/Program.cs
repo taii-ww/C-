@@ -1,6 +1,7 @@
 ﻿
 using System.Text;
 using System.Linq;
+using ConsoleApp1;
 
 Console.OutputEncoding = Encoding.UTF8;
 Console.InputEncoding = Encoding.UTF8;
@@ -9,16 +10,20 @@ Console.WriteLine("Trần Đức Tài");
 Console.WriteLine("Lớp: 24T2");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 7");
+Console.WriteLine("Bài 8");
 
-List<int> numbers = new List<int>() { 2, 5, 9, -1, -6, 12};
-
-bool a = numbers.Any(x => x > 10);
-
-if (a)
-    Console.WriteLine("Có giá trị lớn hơn 10");
-else
+List<Student> students = new List<Student>()
 {
-    Console.WriteLine("Không Có giá trị lớn hơn 10");
+    new Student{Id=1, Name ="An", Score=8},
+    new Student{Id=2, Name="Binh", Score=6},
+    new Student{Id=3, Name="Chi", Score=9},
+    new Student{Id=4, Name="Dung", Score=7}
+};
+
+var a = students.Where(x => x.Score >= 8);
+
+foreach(var n in a)
+{
+    Console.WriteLine(n.Name + "-" + n.Score);
 }
 
