@@ -10,7 +10,7 @@ Console.WriteLine("Trần Đức Tài");
 Console.WriteLine("Lớp: 24T2");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 11");
+Console.WriteLine("Bài 12");
 
 List<Student> students = new List<Student>()
 {
@@ -20,7 +20,7 @@ List<Student> students = new List<Student>()
     new Student{Id=4, Name="Dung", Score=7}
 };
 
-var a = students.OrderByDescending(x => x.Score).First();
+int a = students.Count(x => x.Score == 7);
 
-Console.WriteLine(a.Name + " - " + a.Score);
+Console.WriteLine("Số sinh viên đạt 7đ là: " + a);
 
