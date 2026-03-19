@@ -1,11 +1,21 @@
-﻿// See https://aka.ms/new-console-template for more information
-using ConsoleApp1;
+﻿
+using System.Text;
+using System.Linq;
 
-Point p1 = new Point(3, 8, PointColor.LightBlue);
-Point p2 = new Point(12, 2, PointColor.Gold);
+Console.OutputEncoding = Encoding.UTF8;
+Console.InputEncoding = Encoding.UTF8;
 
-Rectangle rect = new Rectangle(p1, p2);
+Console.WriteLine("Trần Đức Tài");
+Console.WriteLine("Lớp: 24T2");
+Console.WriteLine("Msv: 2415053122241 \n");
 
-rect.Display();
+Console.WriteLine("Bài 1");
 
-Console.ReadLine();
+List<int> numbers = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+var evenNumbers = numbers.Where(x => x % 2 == 0);
+
+foreach (var n in evenNumbers)
+{
+    Console.WriteLine(n);
+}
