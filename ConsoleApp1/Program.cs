@@ -9,13 +9,13 @@ Console.WriteLine("Trần Đức Tài");
 Console.WriteLine("Lớp: 24T2");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 2");
+Console.WriteLine("Bài 3");
 
-List<int> numbers = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
+List<int> numbers = new List<int>() { 2, 5, 9, -1, -6};
 
-var evenNumbers = numbers.Where(x => x > 5);
+var sortedNumbers = numbers.OrderBy(x => x);
 
-foreach (var n in evenNumbers)
+foreach (var n in sortedNumbers)
 {
     Console.WriteLine(n);
 }
