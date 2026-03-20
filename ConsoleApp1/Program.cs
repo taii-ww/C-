@@ -10,7 +10,7 @@ Console.WriteLine("Trần Đức Tài");
 Console.WriteLine("Lớp: 24T2");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 18");
+Console.WriteLine("Bài 19");
 
 
 List<Student> students = new List<Student>()
@@ -21,19 +21,11 @@ List<Student> students = new List<Student>()
     new Student{Id=4, Name="Dung", Score=7},
 };
 
-var groups = students.GroupBy(s =>
-{
-    if (s.Score >= 8) return "Giỏi";
-    else if (s.Score >= 6) return "Khá";
-    else return "Trung bình";
-});
+List<int> numbers = new List<int> { 1, 2, 2, 3, 4, 4, 4, 5 };
 
-foreach (var g in groups)
-{
-    Console.WriteLine(g.Key + ":");
+var mostFrequent = numbers
+    .GroupBy(n => n)
+    .OrderByDescending(g => g.Count())
+    .First().Key;
 
-    foreach (var s in g)
-    {
-        Console.WriteLine("  " + s.Name + " - " + s.Score);
-    }
-}
+Console.WriteLine(mostFrequent);
