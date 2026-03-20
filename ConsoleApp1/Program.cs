@@ -10,7 +10,7 @@ Console.WriteLine("Trần Đức Tài");
 Console.WriteLine("Lớp: 24T2");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 16");
+Console.WriteLine("Bài 17");
 
 
 List<Student> students = new List<Student>()
@@ -21,7 +21,7 @@ List<Student> students = new List<Student>()
     new Student{Id=4, Name="Dung", Score=7},
 };
 
-double a = students.Sum(x => x.Score);
+double a = students.Average(x => x.Score);
 
-Console.WriteLine("Tổng = "+ a);
+Console.WriteLine("TB = "+ a);
 
