@@ -10,7 +10,7 @@ Console.WriteLine("Trần Đức Tài");
 Console.WriteLine("Lớp: 24T2");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 17");
+Console.WriteLine("Bài 18");
 
 
 List<Student> students = new List<Student>()
@@ -21,7 +21,19 @@ List<Student> students = new List<Student>()
     new Student{Id=4, Name="Dung", Score=7},
 };
 
-double a = students.Average(x => x.Score);
+var groups = students.GroupBy(s =>
+{
+    if (s.Score >= 8) return "Giỏi";
+    else if (s.Score >= 6) return "Khá";
+    else return "Trung bình";
+});
 
-Console.WriteLine("TB = "+ a);
+foreach (var g in groups)
+{
+    Console.WriteLine(g.Key + ":");
 
+    foreach (var s in g)
+    {
+        Console.WriteLine("  " + s.Name + " - " + s.Score);
+    }
+}
