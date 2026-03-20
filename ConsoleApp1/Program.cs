@@ -10,7 +10,7 @@ Console.WriteLine("Trần Đức Tài");
 Console.WriteLine("Lớp: 24T2");
 Console.WriteLine("Msv: 2415053122241 \n");
 
-Console.WriteLine("Bài 19");
+Console.WriteLine("Bài 20");
 
 
 List<Student> students = new List<Student>()
@@ -21,11 +21,11 @@ List<Student> students = new List<Student>()
     new Student{Id=4, Name="Dung", Score=7},
 };
 
-List<int> numbers = new List<int> { 1, 2, 2, 3, 4, 4, 4, 5 };
+var top3 = students
+    .OrderByDescending(s => s.Score)
+    .Take(3);
 
-var mostFrequent = numbers
-    .GroupBy(n => n)
-    .OrderByDescending(g => g.Count())
-    .First().Key;
-
-Console.WriteLine(mostFrequent);
+foreach (var s in top3)
+{
+    Console.WriteLine(s.Name + " - " + s.Score);
+}
