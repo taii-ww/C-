@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿namespace CodeFirstStudent.Data;
+
+using Microsoft.EntityFrameworkCore;
 using CodeFirstStudent.Models;
 
 public class AppDbContext : DbContext
