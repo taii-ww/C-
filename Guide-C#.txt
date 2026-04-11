@@ -1,0 +1,404 @@
+Chương 1:
+
+-Nền tảng để chạy chương trình: mỗi ngôn ngữ đều có 1 nền tảng riêng
+nền tảng = môi trường + công cụ để chương trình chạy đc
++)Công cụ (compiler): biến code của bạn thành thứ có thể chạy -> biến code thành mã trung gian
++)Môi trường (runtime): có thể hiểu và chạy đc code -> biến code thành mã nhị phân (0,1) để cpu có thể hiểu và chạy
+.NET là nền tảng để chạy C#
+.NET bao gồm: .NET Runtime -> môi trường 
+              compiler (csc) -> công cụ
+Compiler có thể khác nhau ở mỗi ngôn ngữ
+vd: c# có compiler là csc nằm trong .NET SDK
+    java có compiler là javac nằm trong JDK
+=> Các bước để chạy chương trình (có mã trung gian) là:
+Viết code -> compiler -> runtime -> cpu chạy
+
+**Lưu ý: 
+-Chỉ ngôn ngữ có mã trung gian (java, c#, python,...) thì compiler mới biến code thành mã trung gian
+-Các ngôn ngữ ko có mã trung gian (C, C++,...) thì compiler biến trực tiếp code thành mã nhị phân (0,1), runtime chỉ hỗ trợ thư viện
+
+=> Các bước để chạy chương trình (ko có mã trung gian) là:
+Viết code -> compiler -> cpu chạy
+
+
+-IDE: là môi trường phát triển tích hợp
+hay nói cách khác IDE là phần mềm soạn thảo code có các chức năng nâng cao như Compiler (biên dịch), Debugger (chạy và sửa lỗi), quản lý thư viện,... 
+Có nhiều IDE khác nhau như: visual code, IntelliJ JDEA,... và mỗi IDE sẽ được tích hợp một số nền tảng nhất định => mỗi IDE sẽ mạnh về các ngôn ngữ khác nhau như visual code đc tích hợp rất sâu nền tảng .NET => visual code chạy rất mạnh về ngôn ngữ ngữ C#
+
+**** C# -> console app 
+
+
+
+CHƯƠNG 2
+
+I/ Các lệnh cơ bản c#
+
+1. Xuất dữ liệu
+Console.Write();   Xuất dữ liệu, (giá trị) có thể là chuỗi ký tự, số
+
+Console.WriteLine();   Giống lệnh trên nhưng sau khi in giá trị ra màn hình thì hệ thống sẽ đặt con trỏ xuống dòng tiếp theo -> tức là viết ra rồi xuống dòng
+
+2. Nhập dữ liệu
+
+String S = Console.ReadLine();
+int n = int.Parse(Console.ReadLine());
+double d = double.Parse(Console.ReadLine());
+
+
+
+***** Các câu lệnh và các phương thức khác khác
+
+*
+Console.ReadLine();   Đặt cuối chương trình để dừng màn hình, nếu ko có thì chương trình chạy xong sẽ tắt rất nhanh
+
+*
+Console.OutputEncoding = Encoding.UTF8;
+Console.InputEncoding = Encoding.UTF8;
+
+*
+.Trim() : phương thức giúp loại bỏ các ký tự trắng ở đầu và cuối chuỗi
+vd: input = input.Trim();
+
+*
+.split(): dùng để tách chuỗi thành nhiều phần tử nhỏ dựa vào ký tự hoặc chuỗi phân cách
+vd: string s = "apple,banana,orange";
+string[] arr = s.Split(',');
+Kết quả: arr sẽ chứa: "apple", "banana", "orange"
+
+s.Split(','); → tách chuỗi khi gặp dấu phẩy ,
+s.Split(' '); → tách chuỗi khi gặp dấu cách (space)
+
+StringSplitOptions.RemoveEmptyEntries => dùng để loại bỏ phần tử rỗng khi đã tách chuỗi
+vd: -Ban đầu input = "  nGuYeN    vaN   tAi  "
+input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+-Nếu chỉ Split(' ') thì sẽ ra:
+input = ["", "", "nGuYeN", "", "", "", "vaN", "", "", "tAi", "", ""]
+-Nhưng có RemoveEmptyEntries thì sẽ thành:
+["nGuYeN", "vaN", "tAi"]
+
+Lưu ý: Khi dùng split thì đa số kiểu dữ liệu sẽ là kiểu mảng chuỗi String[]
+vd: string[] words = input.Split(' ');
+
+
+*
+.Substring(): phương thức Cắt/lấy ra một phần của chuỗi từ một vị trí xác định.
+string s = "Nguyen";
+s.Substring(0, 1) → "N" (lấy từ vị trí 0, dài 1 ký tự)
+s.Substring(1) → "guyen" (lấy từ vị trí 1 đến hết)
+
+*
+.Join("ký_tự_phân_cách", mảng_chuỗi);
+Dùng để nối nhiều chuỗi lại thành một chuỗi, có chèn ký tự phân cách vào giữa.
+string[] arr = { "apple", "banana", "orange" };
+string result = string.Join(", ", arr);
+👉 Kết quả:
+"apple, banana, orange"
+
+
+*
+{get; set;} 
+get: lấy giá trị ra (đọc dữ liệu)
+set: gán giá trị vào (ghi dữ liệu)
+cấu trúc: public KieuDuLieu TenThuocTinh { get; set; }
+
+ví dụ:
+public class student
+{
+   public string name {get; seat;}
+}
+Dùng:
+ Student s = new student();
+ s.Name = "Nam"  // đây là set (gán giá trị)
+ Console.Writeline(s.Name);  // đây là get (đọc dữ liệu ra màn hình)
+
+
+*
+Kế thừa
+Public class Beverage : MenuItem
+=> class Beverage kế thừa class MenuItem
+
+*
+-Muốn ghi đè phương thức thì ở phương thức cha phải có 'virtual' và class con phải có 'override'
+-virtual là từ khóa dùng để cho phép phương thức của class cha được class con ghi đè (override).
+
+*
+- Class con muốn gọi constructor của class cha thì dùng: base(...), '...' là biến trong constructor của class cha
+-> giống như super() trong java
+vd: internal class MenuItem
+{
+    protected String name;
+    public MenuItem(String name)
+    {
+        this.name = name;
+    }
+}
+
+internal class Beverage : MenuItem
+{
+    double smallSize;
+    double mediumSize;
+    double largeSize;
+
+    public Beverage(string name, double s, double m, double l) : base(name)
+    {
+        smallSize = s;
+        mediumSize = m;
+        largeSize = l;
+    }
+}
+
+
+*
+Foreach : là vòng lặp dùng để duyệt từng phần tử trong mảng hoặc danh sách.
+vd:
+Employee[] emp = new Employee[4];
+foreach (Employee e in emp)
+{
+    e.calcPaidCheck();
+}
+=> khai báo mảng emp có kiểu dữ liệu là Employee với 4 phần tử trong mảng
+foreach dùng để duyệt hết với phần tử có trong mảng
+=> giống vòng lặp for trong java
+for (Employee e : emp) {
+    e.calcPaidCheck();
+}
+
+Cấu trúc của foreach: 
+foreach (datatype bien in collection)
+{
+    // code
+}
+datatype   → kiểu dữ liệu
+bien       → biến tạm
+collection → danh sách cần duyệt
+
+
+*
+COLLECTIONS (TẬP HỢP DỮ LIỆU)
+Collection được sinh ra để khắc phục sự hạn chế của mảng (array)
+Mảng phải khai báo kích thước trước
+Collections có thể tự động tăng kích thước
+Quản lý dữ liệu linh hoạt và hiệu quả hơn
+
+Các loại collections:
++)ArrayList
++)Stack
++)Queue
++)SortedList
++)Hashtable
+
+Stack -> Lưu dữ liệu theo LIFO (vào sau ra trước)
+Khai báo: Stack<int> s = new Stack<int>();
+
+Queue -> Lưu dữ liệu theo FIFO (vào trước ra trước)
+Khai báo: Queue<string> q = new Queue<string>();
+
+
+arraylist -> dùng để lưu danh sách nhiều kiểu dữ liệu khác nhau.
+Khai báo: ArrayList ar = new ArrayList();
+
+
+Hashtable -> dùng để lưu dữ liệu theo cặp key - value.
+          -> Thứ tự ko cố định
+Khai báo: Hashtable ht = new Hashtable();
+Cố định: ht(KEY, VALUE)
+DictionaryEntry: Là kiểu dữ liệu dùng khi duyệt Hashtable hoặc SortedList.
+vì nó chứa key và value
+
+SortedList -> dùng để lưu dữ liệu theo cặp key - value.
+           -> Thứ tự cố định
+Khai báo: SortedList list = new SortedList();
+
+List<T> -> Lưu danh sách dữ liệu cùng một kiểu
+List<T> khác biệt với các collections mà cũng lưu danh sách dữ liệu cùng một kiểu như stack hay queue chính là List<T>:
++) Rất linh hoạt
++)Có thể truy cập theo index (list[0], list[1])
++)Thêm/xóa ở nhiều vị trí
+Khai báo: List<int> l = new List<int>();
+
+Phương thức thêm phần tử:
+Stack : .Push(..)
+Queue : .Enqueue(..)
+ArrayList, Hashtable, SortedList, List<T> : .Add(..)
+
+
+Từ các collections, ta có thể phân ra thành 2 kiểu: generic và non-generic
++)Non-generic: ArrayList, Stack, Queue, Hashtable, SortedList
++)Generic: List<T>, Stack<T>, Queue<T>, Dictionary<TKey,TValue>
+
+| Non-generic                | Generic                      |
+| -------------------------- | ---------------------------- |
+| Chứa **mọi kiểu dữ liệu**  | Chỉ chứa **1 kiểu xác định** |
+| Dùng **object**            | Dùng **<T>**                 |
+| Phải **ép kiểu (casting)** | **Không cần ép kiểu**        |
+| Dễ lỗi và chậm hơn         | **An toàn và nhanh hơn**     |
+
+
+*
+var: ko phải kiểu dữ liệu mà là ừ khóa để C# tự suy luận kiểu dữ liệu từ giá trị gán. Thậm chí var cũng suy luận ra kiểu collection phù hợp
+var x = 5;              // int
+var list = new List<int>(); // List<int>
+var arr = new int[]{1,2,3}; // int[]
+
+
+*LINQ
+-LINQ là cách truy vấn dữ liệu ngay trong C# (giống SQL nhưng viết trực tiếp trong code)
+-Bạn có thể dùng LINQ để lấy dữ liệu từ: List / Array (rất hay dùng)
+
+-Lambda Expression: Là cách viết hàm ngắn gọn
+s => s.Age > 18
+Hiểu:
+s = từng phần tử trong mảng
+=> = “trả về”
+s.Age > 18 = điều kiện
+
+-Một số lệnh LINQ quan trọng
+1.Where()
+-Dùng để Lọc dữ liệu(Filter)
+-Luôn trả về collection
+list.Where(x => x > 10);
+vd:
+List<int> numbers = new List<int>{1,2,3,4,5,6,7,8};
+var evenNumbers = numbers.Where(n => n % 2 == 0);
+-> lọc những giá trị của mảng <numbers> chia hết cho 2 và gán vào evenNumbers
+
+2.OrderBy()
+-Dùng để sắp xếp tăng dần theo mặc định
+vd: List<int> numbers = new List<int>() { 2, 5, 9, -1, -6};
+var sortedNumbers = numbers.OrderBy(x => x);
+
+3.OrderByDescending()
+-Dùng để sắp xếp giảm dần theo mặc định
+vd: List<int> numbers = new List<int>() { 2, 5, 9, -1, -6};
+var sortedNumbers = numbers.OrderByDescending(x => x);
+
+4.Select()
+-Dùng để lấy ra hoặc biến đổi dữ liệu trong mảng
+Lưu ý: select sẽ không có điều kiện để lọc như where
+VD: List<int> numbers = new List<int>() { 2, 5, 9, -1, -6};
+var squares = numbers.Select(x => x * x);
+
+-> select là bước cuối trong quert syntax -> bắt buộc phải có nếu là truy vấn dữ liệu
+
+5. Count()
+-Dùng để đếm phần tử
+-Lưu ý: nếu dùng count thì kiểu dữ liệu sẽ là 'int'
+vd: List<int> numbers = new List<int>() { 2, 5, 9, -1, -6};
+int countEven = numbers.Count(x => x % 2 == 0);
+Console.WriteLine("Số phần tử chẵn là: "+countEven);
+
+6. Any()
+-Dùng để có phần tử nào thỏa điều kiện hay không
+-> luôn trả về kiểu dữ liệu 'bool'
+bool là kiểu dữ liệu đúng/sai, chỉ có 2 giá trị 'true', 'false'
+
+7. First()
+- Dùng để Lấy phần tử đầu tiên trong danh sách
+- Ko có thì trả về null
+vd: var a = students.OrderByDescending(x => x.Score).First();
+-> lấy phần tử có điểm cao nhất
+
+8.FirstOrDefault()
+-Dùng để Lấy phần tử đầu tiên thỏa điều kiện
+
+8. GroupBy
+- gom các phần tử có cùng giá trị lại thành nhóm
+Key trong GroupBy = giá trị dùng để nhóm.
+vd: var result = students.GroupBy(s => s.Age);
+👉 Key chính là Age.
+
+-Cấu trúc trong quert syntax:
+group x by x.Property into g
+-> Nhóm X theo X.Property
+Group cái gì → g chứa cái đó, Group theo gì → g.Key = điều kiện nhóm
+
+9.Cấu trúc join trong LINQ (query syntax):
+var result =
+    from a in listA
+    join b in listB
+    on a.KeyA equals b.KeyB
+    select new
+    {
+        a,
+        b
+    };
+
+10. Take(n)
+- lấy n phần tử đầu tiên trong danh sách (sau khi đã lọc/sắp xếp).
+
+
+-LINQ kiểu query syntax
+
+var result =
+    from x in collection
+    where điều_kiện
+    group x by key into g
+    orderby tiêu_chí descending
+    select kết_quả;
+
+
+
+
+*
+ToList() là:
+👉 Hàm trong LINQ dùng để chuyển kết quả sang List
+
+
+* Những lưu ý về LINQ 
+1.
+List<Student> students = new List<Student>()
+        {
+            new Student{Id=1, Name="An", Score=8},
+            new Student{Id=2, Name="Binh", Score=6},
+            new Student{Id=3, Name="Chi", Score=9},
+            new Student{Id=4, Name="Dung", Score=7}
+        };
+
+        var goodStudents = students.Where(s => s.Score >= 8);
+=> where có thể lọc và lấy dữ liệu phần tử, cùng với đó là 'toàn bộ' thuộc tính -> Console.WriteLine(s.Name) hay Console.WriteLine(s.Score) đều được
+Vẫn là object đầy đủ (Id, Name, Score)
+
+-> Tương tự với orderBy, orderBydescending,.... thì cũng sẽ lấy đầy đủ thuộc tính
+
+2.
+var a = students.Select(x => x.Name);
+
+-> Select dùng để lấy hoặc biến đổi dữ liệu, nếu lấy dữ liệu trong 1 mảng dữ liệu có nhiều thuộc tính thì chỉ được lấy một số thuộc tính nhất định
+-> x => x.Name: lấy toàn bộ thuộc tính 'name' của mảng -> var sẽ là String
+-> Console.WriteLine(a.Score) => Sai vì a có thuộc tính là String rùi
+
+3.
+Khi ta muốn kiểm tra đúng sai thì luông dùng Any()
+vd: Kiểm tra có sinh viên rớt không, Sinh viên rớt nếu: Score < 5
+Ở đây nếu ta dùng where thì where luôn trả về collection, nên ko thể dùng if đc -> ko thể giải quyết bài toán này
+
+4.
+-Ta dùng var khi kiểu dữ liệu bất định như list, hay class chứa nhiều kiểu dữ liệu khác nhau 
+-Còn các kiểu khác như int, double, string,... ta có thể dùng nếu chỉ truy vấn 1 dữ liệu nhất định 
+
+5.
+VD: double result13 =
+    from c in products
+    select new
+    {
+        total = c.Sum(x => x.Price)
+    };  => SAI vì c ở đây chỉ là từng phần tử đc gọi, hay nói cách khác c là 1 phần tử hoặc 1 dòng dữ liệu của products trong 1 lần duyệt
+=> ko thể nào dùng SUM như vậy đc
+Đúng: double result13 =
+    (from c in products
+     select c.Price).Sum();
+
+Console.WriteLine(result13);
+
+-> Các câu lệnh tương tự Sum():
+Sum() → tính tổng
+Count() → đếm số phần tử
+Max() → giá trị lớn nhất
+Min() → giá trị nhỏ nhất
+Average() → trung bình
+
+
+
+
+
+
